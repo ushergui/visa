@@ -167,6 +167,7 @@ class Protocolo(models.Model):
 
     )
     ouvidoria = models.CharField(max_length=10, null=True, blank=True)
+    observacoes = models.CharField(max_length=660, null=True, blank=True)
     status_protocolo = models.CharField(max_length=26, null=False, choices=STATUS_CHOICES)
     entrada_protocolo = models.DateField(null=False)
     encerramento_protocolo = models.DateField(null=True, blank=True)
@@ -370,8 +371,39 @@ class Infracao(models.Model):
   
 
     numero = models.PositiveSmallIntegerField(null=True, blank=True)
-    numero_format_ano = models.CharField(max_length=9, null=True, blank=True)
+    numero_format_ano = models.CharField(verbose_name='Auto de Infração', max_length=9, null=True, blank=True)
     data_auto = models.DateField(verbose_name='Data do Auto', null=True, blank=True)
+
+    #Parte do protocolo de defesa
+    protocolo_defesa = models.CharField(null=True, max_length=12, blank=True,verbose_name="Protocolo de defesa")
+    entrada_protocolo = models.DateField(null=True, blank=True, verbose_name="Data de entrada")
+    GRAU_CHOICES = (
+        ("PROPRIO", "PROPRIO"),
+        ("CORRESPONSAVEL", "CORRESPONSAVEL"),
+        ("OUTROS", "OUTROS")
+    )
+    quem = models.CharField(null=True, blank=True, max_length=100, verbose_name="Nome de quem protocoloou")
+    grau = models.CharField(null=True, blank=True, max_length=50, verbose_name="Grau de relação", choices=GRAU_CHOICES)
+    prazo_manifesto = models.DateField(null=True, blank=True, verbose_name="Prazo de manifesto")
+
+    #Parte da reinspeção
+    data_inspecao2 = models.DateField(null=True, blank=True, verbose_name="Data da reinspeção")
+    horario_inspecao2 = models.TimeField(null=True, blank=True, verbose_name="Horário de reinspeção")
+    foto_inspecao_2 = models.FileField(upload_to='fotos/', blank=True, verbose_name="Foto da reinspeção")
+    data_manifesto = models.DateField(blank=True, null=True, verbose_name="Data do manifesto")
+    julgamento = models.DateField(blank=True, null=True, verbose_name="Data do julgamento")
+    SITUACAO_CHOICES = (
+        ("1", "Defendeu e limpou"),
+        ("2", "Não defendeu e limpou"),
+        ("3", "Não defendeu e não limpou"),
+        ("4", "Manifesto e julgamento fora do sistema")
+        
+
+    )
+    situacao = models.CharField(blank=True, null=True, max_length=25, choices=SITUACAO_CHOICES, verbose_name="Situação")
+    rastreio_julgamento = models.CharField(max_length=13, null=True, blank=True, verbose_name="Código de rastreio do julgamento")
+    status_rastreio_julgamento = models.CharField(null=True, max_length=22, blank=True, choices=STATUS_RASTREIO_CHOICES, verbose_name="Status devolução julgamento")
+    data_entrega_julgamento = models.DateField(null=True, blank=True, verbose_name="Data da entrega do julgamento")
     
 
     def vrm(self):
@@ -461,7 +493,10 @@ class Reinspecao (models.Model):
     SITUACAO_CHOICES = (
         ("1", "Defendeu e limpou"),
         ("2", "Não defendeu e limpou"),
-        ("3", "Não defendeu e não limpou")
+        ("3", "Não defendeu e não limpou"),
+        ("4", "Defendeu fora do prazo e limpou"),
+
     )
     situacao = models.CharField(max_length=25, choices=SITUACAO_CHOICES, verbose_name="Situação")
     
+

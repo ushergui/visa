@@ -5,15 +5,15 @@ from .views import EstadoCreate, CidadeCreate, BairroCreate, LogradouroCreate, \
     ProprietarioCreate, TerrenoCreate, ProtocoloCreate, FiscalCreate, InspecaoCreate, InfracaoCreate, DefesaCreate, ReinspecaoCreate
 
 from .views import EstadoUpdate, CidadeUpdate, BairroUpdate, LogradouroUpdate, \
-    ProprietarioUpdate, TerrenoUpdate, ProtocoloUpdate, FiscalUpdate, InspecaoUpdate, InfracaoUpdate, DefesaUpdate, ReinspecaoUpdate
+    ProprietarioUpdate, TerrenoUpdate, ProtocoloUpdate, FiscalUpdate, InspecaoUpdate, InfracaoUpdate, DefesaUpdate, ReinspecaoUpdate, ARCreate, DefesasCreate, ReinspecoesCreate, ARJulgamento
 
 from .views import EstadoDelete, CidadeDelete, BairroDelete, LogradouroDelete, \
     ProprietarioDelete, TerrenoDelete, ProtocoloDelete, FiscalDelete, InspecaoDelete, InfracaoDelete, DefesaDelete, ReinspecaoDelete
 
 from .views import EstadoList, CidadeList, BairroList, LogradouroList, \
-    ProprietarioList, TerrenoList, ProtocoloList, FiscalList, InspecaoList, InfracaoList, InfracaoList2, InformacoesList, ReinspecaoList
+    ProprietarioList, TerrenoList, ProtocoloList, FiscalList, InspecaoList, InfracaoList, InfracaoList2, InformacoesList, ReinspecaoList, ProdutividadeList, GerenciarList
 
-from .views import gerar_relatorio, gerar_ar1, gerar_ar2, gerar_auto, gerar_ar3, gerar_ar4, gerar_manifestacao
+from .views import gerar_relatorio, gerar_ar1, gerar_ar2, gerar_auto, gerar_ar3, gerar_ar4, gerar_ar5, gerar_ar6, gerar_manifestacao, gerar_julgamento
 
 from . import views
 
@@ -48,6 +48,11 @@ urlpatterns = [
     path('editar/infracao/<int:pk>/', InfracaoUpdate.as_view(), name="editar-infracao"),
     path('editar/defesa/<int:pk>/', DefesaUpdate.as_view(), name="editar-defesa"),
     path('editar/reinspecao/<int:pk>/', ReinspecaoUpdate.as_view(), name="editar-reinspecao"),
+    path('cadastrar/AR/<int:pk>/', ARCreate.as_view(), name="cadastrar-AR"),
+    path('cadastrar/defesa/<int:pk>/', DefesasCreate.as_view(), name="cadastrar-defesa"),
+    path('cadastrar/defesa/<int:pk>/', DefesasCreate.as_view(), name="cadastrar-defesa"),
+    path('cadastrar/reinspecao/<int:pk>/', ReinspecoesCreate.as_view(), name="cadastrar-reinspecao"),
+    path('cadastrar/AR2/<int:pk>/', ARJulgamento.as_view(), name="cadastrar-AR2"),
 
     # Para deletar é necessário colocar o ID
 
@@ -78,8 +83,10 @@ urlpatterns = [
     path('listar-fiscais/', FiscalList.as_view(), name="listar-fiscais"),
     path('listar-inspecoes/', InspecaoList.as_view(), name="listar-inspecoes"),
     path('listar-infracoes/', InfracaoList.as_view(), name="listar-infracoes"),
+    path('listar-produtividades/', ProdutividadeList.as_view(), name="listar-produtividades"),
     path('listar-informacoes/', InformacoesList.as_view(), name="listar-informacoes"),
-    path('gerenciar-infracoes/', InfracaoList2.as_view(), name="gerenciar-infracoes"),
+    path('gerenciar-infracoes/', GerenciarList.as_view(), name="gerenciar-infracoes"),
+    path('gerenciar-defesas/', InfracaoList2.as_view(), name="gerenciar-defesas"),
     path('listar-reinspecoes/', ReinspecaoList.as_view(), name="listar-reinspecoes"),
 
 
@@ -90,9 +97,13 @@ urlpatterns = [
     path('gerar_ar2/<int:pk>/', gerar_ar2, name='gerar_ar2'),
     path('gerar_ar3/<int:pk>/', gerar_ar3, name='gerar_ar3'),
     path('gerar_ar4/<int:pk>/', gerar_ar4, name='gerar_ar4'),
+    path('gerar_ar5/<int:pk>/', gerar_ar5, name='gerar_ar5'),
+    path('gerar_ar6/<int:pk>/', gerar_ar6, name='gerar_ar6'),
     path('gerar_auto/<int:pk>/', gerar_auto, name='gerar_auto'),
     path('gerar_manifestacao/<int:pk>/', gerar_manifestacao, name='gerar_manifestacao'),
+    path('gerar_julgamento/<int:pk>/', gerar_julgamento, name='gerar_julgamento'),
 
 
 
 ]
+

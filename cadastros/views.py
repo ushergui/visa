@@ -69,13 +69,9 @@ class EstadoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de estados"
+        context['titulo'] = "Cadastro de estado"
         context['botao'] = "Cadastrar"
         return context
-
-
-
-
 
 class CidadeCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -87,7 +83,7 @@ class CidadeCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de cidades"
+        context['titulo'] = "Cadastro de cidade"
         context['botao'] = "Cadastrar"
         return context
 
@@ -100,7 +96,7 @@ class BairroCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de bairros"
+        context['titulo'] = "Cadastro de bairro"
         context['botao'] = "Cadastrar"
         return context
 
@@ -113,7 +109,7 @@ class LogradouroCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastros de logradouros"
+        context['titulo'] = "Cadastros de logradouro"
         context['botao'] = "Cadastrar"
         return context
 
@@ -126,7 +122,7 @@ class ProprietarioCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de proprietários"
+        context['titulo'] = "Cadastro de proprietário"
         context['botao'] = "Cadastrar"
         return context
 
@@ -141,7 +137,7 @@ class TerrenoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de terrenos"
+        context['titulo'] = "Cadastro de terreno"
         context['botao'] = "Cadastrar"
         return context
 
@@ -155,7 +151,7 @@ class ProtocoloCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de protocolos"
+        context['titulo'] = "Cadastro de protocolo"
         context['botao'] = "Cadastrar"
         return context
 
@@ -168,7 +164,7 @@ class FiscalCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de fiscais"
+        context['titulo'] = "Cadastro de fiscal"
         context['botao'] = "Cadastrar"
         return context
 
@@ -182,7 +178,7 @@ class InspecaoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de inspeções"
+        context['titulo'] = "Cadastro de inspeção"
         context['botao'] = "Cadastrar"
         return context
 
@@ -195,7 +191,7 @@ class InfracaoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Infrações"
+        context['titulo'] = "Cadastro de infração"
         context['botao'] = "Cadastrar"
         return context
 
@@ -260,8 +256,8 @@ class EstadoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context["titulo"] = "Edição de estados"
-        context["botao"] = "Atualizar"
+        context["titulo"] = "Edição de estado"
+        context["botao"] = "Gravar"
 
         return context
 
@@ -274,8 +270,8 @@ class CidadeUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context["titulo"] = "Edição de cidades"
-        context["botao"] = "Atualizar"
+        context["titulo"] = "Edição de cidade"
+        context["botao"] = "Gravar"
 
         return context
 
@@ -288,8 +284,8 @@ class BairroUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context["titulo"] = "Edição de bairros"
-        context["botao"] = "Atualizar"
+        context["titulo"] = "Edição de bairro"
+        context["botao"] = "Gravar"
 
         return context
 
@@ -302,8 +298,8 @@ class LogradouroUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Edição de logradouros"
-        context['botao'] = "Atualizar"
+        context['titulo'] = "Edição de logradouro"
+        context["botao"] = "Gravar"
         return context
 
 class ProprietarioUpdate(LoginRequiredMixin, UpdateView):
@@ -315,8 +311,8 @@ class ProprietarioUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context["titulo"] = "Edição de proprietários"
-        context["botao"] = "Atualizar"
+        context["titulo"] = "Edição de proprietário"
+        context["botao"] = "Gravar"
 
         return context
 
@@ -331,23 +327,23 @@ class TerrenoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context["titulo"] = "Edição de terrenos"
-        context["botao"] = "Atualizar"
+        context["titulo"] = "Edição de terreno"
+        context["botao"] = "Gravar"
 
         return context
 
 class ProtocoloUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Protocolo
-    fields = ['protocolo', 'solicitante_protocolo', 'logradouro', 'descricao_protocolo', 'ouvidoria',
+    fields = ['protocolo', 'solicitante_protocolo', 'logradouro', 'descricao_protocolo', 'ouvidoria', 'observacoes',
               'status_protocolo', 'entrada_protocolo', 'encerramento_protocolo']
     template_name = 'form.html'
     success_url = reverse_lazy('listar-protocolos')
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Edição de protocolos "
-        context['botao'] = "Atualizar"
+        context['titulo'] = "Edição de protocolo"
+        context["botao"] = "Gravar"
         return context
 
 class FiscalUpdate(LoginRequiredMixin, UpdateView):
@@ -359,8 +355,8 @@ class FiscalUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Edição de fiscais"
-        context['botao'] = "Atualizar"
+        context['titulo'] = "Edição de fiscal"
+        context["botao"] = "Gravar"
         return context
 
 class InspecaoUpdate(LoginRequiredMixin, UpdateView):
@@ -373,22 +369,76 @@ class InspecaoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Edição da inspeções"
-        context['botao'] = "Atualizar"
+        context['titulo'] = "Edição da inspeção"
+        context["botao"] = "Gravar"
         return context
 
 class InfracaoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Infracao
-    fields = ['inspecao','data_auto','rastreio_infracao','status_rastreio','data_entrega_autuacao','nome_recebedor', 'prazo_defesa']
+    fields = ['inspecao', 'data_auto','rastreio_infracao','status_rastreio','data_entrega_autuacao','prazo_defesa','nome_recebedor','numero_format_ano','protocolo_defesa','entrada_protocolo','quem','prazo_manifesto','foto_inspecao_2','data_inspecao2','horario_inspecao2','data_manifesto','julgamento','situacao','rastreio_julgamento','status_rastreio_julgamento','data_entrega_julgamento']
+    template_name = 'form-upload.html'
+    success_url = reverse_lazy('gerenciar-infracoes')
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Edição de infração"
+        context["botao"] = "Gravar"
+        return context
+
+class ARCreate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Infracao
+    fields = ['numero_format_ano','rastreio_infracao','status_rastreio','data_entrega_autuacao','nome_recebedor', 'prazo_defesa']
     template_name = 'form.html'
     success_url = reverse_lazy('listar-infracoes')
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Edição de infrações"
-        context['botao'] = "Atualizar"
+        context['titulo'] = "Controle de AR's"
+        context["botao"] = "Gravar"
         return context
+
+class DefesasCreate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Infracao
+    fields = ['numero_format_ano','protocolo_defesa','entrada_protocolo','quem', 'prazo_manifesto']
+    template_name = 'form.html'
+    success_url = reverse_lazy('listar-infracoes')
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Controle de defesas"
+        context["botao"] = "Gravar"
+        return context
+
+class ReinspecoesCreate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Infracao
+    fields = ['numero_format_ano','foto_inspecao_2','data_inspecao2','horario_inspecao2','data_manifesto','situacao','julgamento']
+    template_name = 'form-upload.html'
+    success_url = reverse_lazy('listar-infracoes')
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Cadastrar reinspeção"
+        context["botao"] = "Gravar"
+        return context
+
+class ARJulgamento(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Infracao
+    fields = ['numero_format_ano','rastreio_julgamento','status_rastreio_julgamento','data_entrega_julgamento']
+    template_name = 'form.html'
+    success_url = reverse_lazy('listar-infracoes')
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Controle de AR's julgamento"
+        context["botao"] = "Gravar"
+        return context
+
+
 
 class DefesaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -562,9 +612,19 @@ class InfracaoList(LoginRequiredMixin, ListView):
     model = Infracao
     template_name = 'listar-infracoes.html'
 
+class ProdutividadeList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Infracao
+    template_name = 'listar-produtividades.html'
+
 class InfracaoList2(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Defesa
+    template_name = 'gerenciar-defesas.html'
+
+class GerenciarList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Infracao
     template_name = 'gerenciar-infracoes.html'
 
 class InformacoesList(LoginRequiredMixin, ListView):
@@ -583,8 +643,12 @@ def gerar_relatorio(request,pk,template_name="gerar_relatorio.html"):
     return render(request, template_name, {'inspecao':inspecao})
 
 def gerar_manifestacao(request,pk,template_name="gerar_manifestacao.html"):
-    reinspecao = get_object_or_404(Reinspecao, pk=pk)
-    return render(request, template_name, {'reinspecao':reinspecao})
+    infracao = get_object_or_404(Infracao, pk=pk)
+    return render(request, template_name, {'infracao':infracao})
+
+def gerar_julgamento(request,pk,template_name="gerar_julgamento.html"):
+    infracao = get_object_or_404(Infracao, pk=pk)
+    return render(request, template_name, {'infracao':infracao})
 
 def gerar_ar1(request,pk,template_name="gerar_ar1.html"):
     infracao = get_object_or_404(Infracao, pk=pk)
@@ -602,6 +666,15 @@ def gerar_ar4(request,pk,template_name="gerar_ar4.html"):
     infracao = get_object_or_404(Infracao, pk=pk)
     return render(request, template_name, {'infracao':infracao})
 
+def gerar_ar5(request,pk,template_name="gerar_ar5.html"):
+    infracao = get_object_or_404(Infracao, pk=pk)
+    return render(request, template_name, {'infracao':infracao})
+
+def gerar_ar6(request,pk,template_name="gerar_ar6.html"):
+    infracao = get_object_or_404(Infracao, pk=pk)
+    return render(request, template_name, {'infracao':infracao})
+
 def gerar_auto(request,pk,template_name="auto_infracao.html"):
     infracao = get_object_or_404(Infracao, pk=pk)
     return render(request, template_name, {'infracao':infracao})
+

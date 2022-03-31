@@ -4,7 +4,7 @@
 
 {% block conteudo %}
 <h3>Controle dos autos de infração
-<a href="{% url 'cadastrar-defesa' %}" class="btn btn-primary btn-sm float-right">Adicionar defesa</a>
+
 </h3>
 
 <hr>
@@ -13,44 +13,36 @@
     <thead>
     <tr>
         <th style="font-size:12px" class="text-center">Auto</th>
-        <th style="font-size:12px" class="text-center">Protocolo</th>
-        <th style="font-size:12px" class="text-center">Imóvel / Endereço / Proprietário</th>
-        <th style="font-size:12px" class="text-center">Rastreio</th>
-        <th style="font-size:12px" class="text-center">Status</th>
+        <th style="font-size:12px" class="text-center">Protocolo / Imóvel / Proprietário</th>
+        <th style="font-size:12px" class="text-center">Fiscal</th>
         <th style="font-size:12px" class="text-center">Entrega</th>
         <th style="font-size:12px" class="text-center">Prazo</th>
         <th style="font-size:12px" class="text-center">Defesa</th>
 	<th style="font-size:12px" class="text-center">Prazo manifesto</th>
         <th style="font-size:12px" class="text-center">Manifesto</th>
         <th style="font-size:12px" class="text-center">Julgamento</th>
-        <th style="font-size:12px" class="text-center">Opções</th>
+	<th style="font-size:12px" class="text-cneter">Entrega</th>
+        <th style="font-size:12px" class="text-center">Editar</th>
     </tr>
     </thead>
     <tbody>
-    {% for defesa in object_list %}
+    {% for infracao in object_list %}
     <tr>
-        <td class="font-size:11px class=text-center">{{ defesa.infracao.numero_format_ano }}</td>
-        <td class="font-size:11px class=text-center">{{ defesa.infracao.inspecao.protocolo }}</td>
-	<td style="font-size:11px">{{ defesa.infracao.inspecao.terreno.inscricao }} - {{ defesa.infracao.inspecao.terreno.logradouro_terreno.tipo }} {{ defesa.infracao.inspecao.terreno.logradouro_terreno.nome_logradouro }} - {{ defesa.infracao.inspecao.terreno.proprietario }}</td>
-        <td class="text-center">{{ defesa.infracao.rastreio_infracao }}</td>
-        <td class="text-center">
-                {% if defesa.infracao.status_rastreio is None %} 
-		{% else %}{{ defesa.infracao.status_rastreio }} 
-	        {% endif %}</td>
-        <td class="text-center">{{ defesa.infracao.data_entrega_autuacao|date:"d/m/Y" }}</td>
-        <td class="text-center">{{ defesa.infracao.prazo_defesa|date:"d/m/Y" }}</td>
-	<td class="text-center">{{ defesa.entrada_protocolo|date:"d/m/Y" }}</td>
-        <td class="text-center">{{ defesa.prazo_manifesto|date:"d/m/Y" }}</td>
-        <td class=""></td>
-	<td class=""></td>
-
-	<td class="text-center">
-            <a href="{% url 'editar-defesa' defesa.pk %}" >
+        <td style="font-size:11px" class="text-center">{{ infracao.numero_format_ano }}</td>
+	<td style="font-size:11px" >{{ infracao.inspecao.protocolo }} - {{ infracao.inspecao.terreno.inscricao }} - {{ infracao.inspecao.terreno.logradouro_terreno.tipo }} {{ infracao.inspecao.terreno.logradouro_terreno.nome_logradouro }} - {{ infracao.inspecao.terreno.proprietario }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.inspecao.fiscal }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.data_entrega_autuacao|date:"d/m/Y" }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.prazo_defesa|date:"d/m/Y" }}</td>
+	<td style="font-size:11px" class="text-center">{{ infracao.entrada_protocolo|date:"d/m/Y" }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.prazo_manifesto|date:"d/m/Y" }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.data_manifesto|date:"d/m/Y" }}</td>
+        <td style="font-size:11px" class="text-center">{{ infracao.julgamento|date:"d/m/Y" }}</td>
+	<td style="font-size:11px" class="text-center">{{ infracao.data_entrega_julgamento|date:"d/m/Y" }}</td>
+	<td style="font-size:11px" class="text-center">
+            <a href="{% url 'editar-infracao' infracao.pk %}" >
             <i class="fa fa-pencil" aria-hidden="true"></i>
             </a>
-            <a href="{% url 'deletar-defesa' defesa.pk %}" >
-            <i class="fa fa-trash" aria-hidden="true"></i>
-            </a>
+           
         </td>
 
 
@@ -77,16 +69,16 @@
             responsive: true,
             // "bSort": false,
             "aaSorting": [],
-            "pageLength": 50,
+            "pageLength": 99999,
             "language": {
                 "decimal": "",
                 "emptyTable": "Sem dados disponíveis",
-                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-                "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ registos",
+                "lengthMenu": "Mostrar _MENU_ registros",
                 "loadingRecords": "A carregar dados...",
                 "processing": "A processar...",
                 "search": "Procurar:",
@@ -109,3 +101,4 @@
 </script>
 
 {% endblock %}
+

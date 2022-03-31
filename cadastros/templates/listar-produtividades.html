@@ -3,33 +3,42 @@
 {% load static %}
 
 {% block conteudo %}
-<h3>Lista de produtividade
-<a href="{% url 'cadastrar-produtividade' %}" class="btn btn-primary btn-sm float-right">Adicionar Produtividade</a>
+<h3>Produtividade
 </h3>
-
-
-
 <hr>
 <div class="table responsive">
-<table class="table table-striped">
+
+<table class="table table-striped table-hover table-condensed" id="tabela-listar">
+    <thead>
     <tr>
-        <th>Descrição</th>
-        <th>PDF</th>
-        <th>Opções</th>
+        <th class="text-center">Protocolo</th>
+        <th class="text-center">Entrada</th>
+        <th class="text-center">Início</th>
+        <th class="text-center">Procedimentos</th>
+        <th class="text-center">Código</th>
+        <th class="text-center">Tempo</th>
+        <th class="text-center">Pontos</th>
+        <th class="text-center">Saida</th>
+	  <th class="text-center">Fiscal</th>
+
 
     </tr>
-    {% for produtividade in object_list %}
+    </thead>
+    <tbody>
+    {% for infracao in object_list %}
     <tr>
-        <td>{{ produtividade.descricao }}</td>
-        <td><a href="{{ produtividade.pdf_teste.url }}">Ver</a> </td>
-        <td>
-            <a href="{% url 'editar-produtividade' produtividade.pk %}" class="btn btn-warning btn-sm" title="Editar">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a>
-            <a href="{% url 'deletar-produtividade' produtividade.pk %}" class="btn btn-danger btn-sm" title="Excluir">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-            </a>
-        </td>
+        <td class="text-center">{{ infracao.inspecao.protocolo }}</td>
+        <td class="text-center">{{ infracao.inspecao.protocolo.entrada_protocolo|date:"d/m/Y" }}</td>
+        <td class="text-center">{{ infracao.inspecao.data_inspecao1|date:"d/m/Y" }}</td>
+        <td class="text-center">Inspeção, relatório e auto de infração nº {{ infracao.numero_format_ano }}</td>
+        <td class="text-center">2.1 + 2.4 + 4.3</td>
+        <td class="text-center">01h</td>
+        <td class="text-center">51</td>
+        <td class="text-center">{{ infracao.data_auto|date:"d/m/Y" }}</td>
+        <td class="text-center">{{ infracao.inspecao.fiscal }} </td>
+
+
+
     </tr>
     {% empty %}
         <tr>
@@ -37,7 +46,51 @@
         </tr>
     {% endfor %}
 
+</tbody>
 </table>
-
 </div>
+
 {% endblock %}
+{% block scripts %}
+<script>
+
+
+    $(document).ready(function(){
+
+        $("#tabela-listar").DataTable({
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength":5555,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });
+
+    });
+
+</script>
+
+{% endblock %}
+
