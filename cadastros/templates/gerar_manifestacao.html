@@ -123,7 +123,79 @@
 
       <h1 style="position:absolute;top:302px;left:190px">Manifestação feita fora do sistema</h1>
 
-    {% endif %}
+      {% elif infracao.situacao == "5" %}
+
+      <p style="position:absolute;top:168px;left:10px;white-space:nowrap" class="ft01"><b>Responsável por apresentar a defesa:</b></p>
+<p style="position:absolute;top:168px;left:268px;white-space:nowrap" class="ft02"> {{ infracao.quem }} </p>
+
+<p style="position:absolute;top:198px;left:10px;white-space:nowrap" class="ft01">A notificação do Auto de Infração nº {{ infracao.numero_format_ano }} foi &#160;entregue &#160;no endereço &#160;de correspondência do imóvel em</p>
+
+    <p style="position:absolute;top:224px;left:10px;white-space:nowrap" class="ft01">{{ infracao.data_entrega_autuacao|date:"d/m/Y" }}. O proprietário teria até dia {{ infracao.prazo_defesa|date:"d/m/Y" }} para protocolar a defesa. </p>
+
+    <p style="position:absolute;top:250px;left:10px;white-space:nowrap" class="ft01">De &#160;acordo &#160;com &#160;nossos registros, não havia sido apresentado defesa até a data de 
+
+    {{ infracao.data_inspecao2|date:"d/m/Y" }} quando, ao tra-</p>
+
+<p style="position:absolute;top:276px;left:10px;white-space:nowrap" class="ft01">fegar &#160;pelo&#160; endereço do terreno durante a rotina de fiscalização, constatou-se que o terreno foi limpo, confor-</p>
+
+
+
+<p style="position:absolute;top:302px;left:10px;white-space:nowrap" class="ft01">me registro fotográfico.</p>
+<p style="position:absolute;top:328px;left:10px;white-space:nowrap" class="ft01">Entretando, &#160;no dia {{ infracao.entrada_protocolo|date:"d/m/Y" }}, o responsável acima apresentou defesa ao Auto de Infração, conforme reque-</p>
+<p style="position:absolute;top:354px;left:10px;white-space:nowrap" class="ft01">rimento {{ infracao.protocolo_defesa }}.</p>
+
+<p style="position:absolute;top:380px;left:10px;white-space:nowrap" class="ft01">Considerando &#160;que&#160; o&#160; terreno já havia sido limpo em data anterior ao protocolo de defesa e que o objetivo da</p>
+
+<p style="position:absolute;top:406px;left:10px;white-space:nowrap" class="ft01">autuação&#160; é&#160; que o responsável limpe o seu terreno, diminuindo ou eliminando o risco de proliferação de inse-</p>
+
+<p style="position:absolute;top:432px;left:10px;white-space:nowrap" class="ft01">tos e animais peçonhentos nas residências dos vizinhos, sou pelo arquivamento do Auto de Infração sem apli-<p>
+
+<p style="position:absolute;top:458px;left:10px;white-space:nowrap" class="ft02">cação da penalidade.</p>
+
+<img src='{{ infracao.foto_inspecao_2.url }}' style="position:absolute;left:100px;top:498px;height:350px;width:520px" />
+
+    <p style="position:absolute;top:839px;left:10px;white-space:nowrap" class="ft01">Esta é a manifestação.</p>
+
+         <p style="position:absolute;top:865px;left:10px;white-space:nowrap" class="ft02">São&#160;Sebastião&#160;do&#160;Paraíso,
+  {{ infracao.data_manifesto|date:"d" }}&#160;de&#160;{{ infracao.data_manifesto|date:"F" }}&#160;de&#160;{{ infracao.data_manifesto|date:"Y" }}</p>
+
+
+
+	 {% elif infracao.situacao == "6" %} 
+
+
+<p style="position:absolute;top:198px;left:10px;white-space:nowrap" class="ft01">A&#160; notificação &#160;do Auto de Infração nº {{ infracao.numero_format_ano }}  não foi entregue no endereço de correspondência do imóvel</p>
+<p style="position:absolute;top:224px;left:10px;white-space:nowrap" class="ft01">pelo motivo “{{ infracao.status_rastreio }}” segundo AR devolvida pelo Correios. </p>
+     
+    <p style="position:absolute;top:250px;left:10px;white-space:nowrap" class="ft01">Nas situações onde não foi possível entregar a correspondência, é previsto a publicação da notificação através</p>
+
+<p style="position:absolute;top:276px;left:10px;white-space:nowrap" class="ft01">de&#160; edital&#160; público no Jornal Oficial do Município. Entretanto no dia {{  infracao.data_inspecao2|date:"d/m/Y" }}, ao trafegar pelo endereço do</p>
+
+
+
+<p style="position:absolute;top:302px;left:10px;white-space:nowrap" class="ft01">terreno durante a rotina da fiscalização, constatou-se que o terreno foi limpo conforme registro fotográfico.</p>
+<p style="position:absolute;top:328px;left:10px;white-space:nowrap" class="ft01">Considerando &#160;que o objetivo da autuação é que o responsável limpe o seu terreno, diminuindo ou eliminando</p>
+<p style="position:absolute;top:354px;left:10px;white-space:nowrap" class="ft01">o&#160; risco de proliferação de insetos e animais peçonhentos nas residências dos vizinhos, sou pelo arquivamento</p>
+
+<p style="position:absolute;top:380px;left:10px;white-space:nowrap" class="ft01">do Auto de Infração sem necessidade de publicação de edital e sem aplicação da penalidade.</p>
+
+  <img src='{{ infracao.foto_inspecao_2.url }}' style="position:absolute;left:100px;top:428px;height:350px;width:520px" />
+
+    <p style="position:absolute;top:771px;left:10px;white-space:nowrap" class="ft01">Esta é a manifestação.</p>
+
+         <p style="position:absolute;top:797px;left:10px;white-space:nowrap" class="ft02">São&#160;Sebastião&#160;do&#160;Paraíso,
+  {{ infracao.data_manifesto|date:"d" }}&#160;de&#160;{{ infracao.data_manifesto|date:"F" }}&#160;de&#160;{{ infracao.data_manifesto|date:"Y" }}</p>
+
+{% elif infracao.situacao == "7" %}
+
+
+      <h1 style="position:absolute;top:302px;left:190px">Feito Edital</h1>
+
+
+
+
+
+	 {% endif %}
 
 
 

@@ -396,8 +396,10 @@ class Infracao(models.Model):
         ("1", "Defendeu e limpou"),
         ("2", "Não defendeu e limpou"),
         ("3", "Não defendeu e não limpou"),
-        ("4", "Manifesto e julgamento fora do sistema")
-        
+        ("4", "Manifesto e julgamento fora do sistema"),
+        ("5", "Defendeu após o prazo e limpou"),
+        ("6", "Não recebeu e limpou"),
+        ("7", "Edital")
 
     )
     situacao = models.CharField(blank=True, null=True, max_length=25, choices=SITUACAO_CHOICES, verbose_name="Situação")
